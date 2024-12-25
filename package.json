@@ -23,6 +23,7 @@
 		"@nextui-org/link": "2.2.3",
 		"@nextui-org/listbox": "2.3.3",
 		"@nextui-org/navbar": "2.2.3",
+		"@nextui-org/react": "^2.6.10",
 		"@nextui-org/snippet": "2.2.4",
 		"@nextui-org/switch": "2.2.3",
 		"@nextui-org/system": "2.4.3",
@@ -41,6 +42,7 @@
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"react-hook-form": "^7.54.2",
+		"react-icons": "^5.4.0",
 		"sonner": "^1.7.1"
 	},
 	"devDependencies": {

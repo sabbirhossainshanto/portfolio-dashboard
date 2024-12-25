@@ -13,7 +13,7 @@ AxiosSecure.interceptors.request.use(
     const cookiesStore = await cookies();
     const accessToken = cookiesStore.get("accessToken")?.value;
     if (accessToken) {
-      config.headers.Authorization = accessToken;
+      config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;
   },
@@ -24,7 +24,7 @@ AxiosSecure.interceptors.request.use(
       config.sent = true;
       const res = await getNewAccessToken();
       const accessToken = res?.data?.accessToken;
-      config.headers["Authorization"] = accessToken;
+      config.headers["Authorization"] = `Bearer ${accessToken}`;
       const cookiesStore = await cookies();
       cookiesStore.set("accessToken", accessToken);
       return AxiosSecure(config);

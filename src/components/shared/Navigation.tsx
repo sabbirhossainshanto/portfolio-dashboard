@@ -1,5 +1,5 @@
 import { type Navigation } from "@toolpad/core/AppProvider";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+import Project from "@mui/icons-material/Work";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -8,16 +8,16 @@ import LayersIcon from "@mui/icons-material/Layers";
 export const NAVIGATION: Navigation = [
   {
     kind: "header",
-    title: "Main items",
+    title: "Projects",
   },
   {
-    segment: "blog",
-    title: "Blog",
-    icon: <DashboardIcon />,
+    segment: "projects",
+    title: "Projects",
+    icon: <Project />,
   },
   {
-    segment: "orders",
-    title: "Orders",
+    segment: "add-project",
+    title: "Add Project",
     icon: <ShoppingCartIcon />,
   },
   {
@@ -25,7 +25,17 @@ export const NAVIGATION: Navigation = [
   },
   {
     kind: "header",
-    title: "Analytics",
+    title: "Skills",
+  },
+  {
+    segment: "skills",
+    title: "Skills",
+    icon: <LayersIcon />,
+  },
+  {
+    segment: "add-skill",
+    title: "Add Skill",
+    icon: <LayersIcon />,
   },
   {
     segment: "reports",
@@ -43,10 +53,5 @@ export const NAVIGATION: Navigation = [
         icon: <DescriptionIcon />,
       },
     ],
-  },
-  {
-    segment: "integrations",
-    title: "Integrations",
-    icon: <LayersIcon />,
   },
 ];

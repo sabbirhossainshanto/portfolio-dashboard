@@ -3,18 +3,25 @@
 import { AppProvider } from "@toolpad/core/nextjs";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { NAVIGATION } from "../shared/Navigation";
+import { LinearProgress } from "@mui/material";
+import React, { Suspense } from "react";
 
 interface LayoutProps {
-  window?: () => Window;
   children: React.ReactNode;
 }
 
-export default function Layout(props: LayoutProps) {
-  const { window } = props;
-  const layoutWindow = window !== undefined ? window() : undefined;
+export default function Layout({ children }: LayoutProps) {
   return (
-    <AppProvider navigation={NAVIGATION} window={layoutWindow}>
-      <DashboardLayout>{props.children}</DashboardLayout>
-    </AppProvider>
+    <Suspense fallback={<LinearProgress />}>
+      <AppProvider
+        navigation={NAVIGATION}
+        branding={{
+          title: "Sabbir",
+          homeUrl: "/",
+        }}
+      >
+        <DashboardLayout>{children}</DashboardLayout>
+      </AppProvider>
+    </Suspense>
   );
 }
