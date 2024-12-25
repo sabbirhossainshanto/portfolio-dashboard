@@ -3,8 +3,8 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { siteConfig } from "@/src/config/site";
 import { fontSans } from "@/src/config/fonts";
-import { Providers } from "../lib/Provider";
-import Layout from "../components/layout/Layout";
+import { Providers } from "@/src/lib/Provider";
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -39,9 +39,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
-            <main className="container  flex-grow">
-              <Layout>{children}</Layout>
-            </main>
+            <main className="container  flex-grow">{children}</main>
           </div>
         </Providers>
       </body>
