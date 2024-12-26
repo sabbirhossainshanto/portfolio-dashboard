@@ -18,10 +18,18 @@ export const getAllSkill = async () => {
     return error.response.data;
   }
 };
+export const getSingleSkill = async (id: string) => {
+  try {
+    const { data } = await AxiosSecure.get(`/skill/${id}`);
+    return data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};
 
 export const updateSkill = async (payload: { data: FormData; id: string }) => {
   try {
-    const { data } = await AxiosSecure.post(
+    const { data } = await AxiosSecure.put(
       `/skill/${payload.id}`,
       payload.data
     );

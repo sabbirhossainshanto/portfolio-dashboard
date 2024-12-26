@@ -1,9 +1,8 @@
 import { type Navigation } from "@toolpad/core/AppProvider";
-import Project from "@mui/icons-material/Work";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CgWebsite } from "react-icons/cg";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import DescriptionIcon from "@mui/icons-material/Description";
-import LayersIcon from "@mui/icons-material/Layers";
+import { SiHyperskill } from "react-icons/si";
 
 export const NAVIGATION: Navigation = [
   {
@@ -13,12 +12,12 @@ export const NAVIGATION: Navigation = [
   {
     segment: "projects",
     title: "Projects",
-    icon: <Project />,
+    icon: <CgWebsite size={20} />,
   },
   {
     segment: "add-project",
     title: "Add Project",
-    icon: <ShoppingCartIcon />,
+    icon: <CgWebsite size={20} />,
   },
   {
     kind: "divider",
@@ -30,13 +29,9 @@ export const NAVIGATION: Navigation = [
   {
     segment: "skills",
     title: "Skills",
-    icon: <LayersIcon />,
+    icon: <SiHyperskill />,
   },
-  {
-    segment: "add-skill",
-    title: "Add Skill",
-    icon: <LayersIcon />,
-  },
+
   {
     segment: "reports",
     title: "Reports",

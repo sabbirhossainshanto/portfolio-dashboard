@@ -10,11 +10,14 @@ import {
   TableCell,
   User,
   Tooltip,
+  Button,
 } from "@nextui-org/react";
-import { DeleteIcon, EditIcon } from "@/src/components/icons";
-import { useGetAllSkill } from "@/src/hooks/skill";
+import { DeleteIcon } from "@/src/components/icons";
+import { useDeleteSkill, useGetAllSkill } from "@/src/hooks/skill";
 import { ISkill } from "@/src/types";
 import AddSkill from "@/src/components/modal/AddSkill";
+import { toast } from "sonner";
+import UpdateSkill from "@/src/components/modal/UpdateSkill";
 
 export const columns = [
   { name: "Image", uid: "image" },
@@ -23,13 +26,27 @@ export const columns = [
 ];
 
 export default function Skills() {
-  const { data } = useGetAllSkill();
+  const { data, refetch } = useGetAllSkill();
+  const { mutate: deleteSkill } = useDeleteSkill();
   const skillData =
     data?.data?.map((skill) => ({
       image: skill.image,
       title: skill.title,
       _id: skill?._id,
     })) || [];
+
+  const handleDelete = (_id: string) => {
+    deleteSkill(_id, {
+      onSuccess(data) {
+        if (data?.success) {
+          toast.success(data?.message);
+          refetch();
+        } else {
+          toast.error(data?.message);
+        }
+      },
+    });
+  };
   const renderCell = React.useCallback(
     (skill: Partial<ISkill>, columnKey: string) => {
       const cellValue = skill[columnKey as keyof ISkill];
@@ -42,16 +59,17 @@ export default function Skills() {
 
         case "actions":
           return (
-            <div className="relative flex items-center justify-center gap-2">
-              <Tooltip content="Edit user">
-                <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <EditIcon />
-                </span>
+            <div className="relative flex items-center justify-end gap-2">
+              <Tooltip content="Edit skill">
+                <UpdateSkill id={skill?._id as string} />
               </Tooltip>
-              <Tooltip color="danger" content="Delete user">
-                <span className="text-lg text-danger cursor-pointer active:opacity-50">
+              <Tooltip color="danger" content="Delete skill">
+                <Button
+                  onPress={() => handleDelete(skill._id as string)}
+                  className="text-lg text-danger cursor-pointer active:opacity-50"
+                >
                   <DeleteIcon />
-                </span>
+                </Button>
               </Tooltip>
             </div>
           );
@@ -72,7 +90,7 @@ export default function Skills() {
           {(column) => (
             <TableColumn
               key={column.uid}
-              align={column.uid === "actions" ? "center" : "start"}
+              align={column.uid === "actions" ? "end" : "start"}
             >
               {column.name}
             </TableColumn>

@@ -3,6 +3,7 @@ import {
   addSkill,
   deleteSkill,
   getAllSkill,
+  getSingleSkill,
   updateSkill,
 } from "../services/Skill";
 import { IResponse, ISkill } from "../types";
@@ -18,6 +19,13 @@ export const useGetAllSkill = () => {
   return useQuery<any, Error, IResponse<ISkill[]>>({
     queryKey: ["skills"],
     queryFn: async () => await getAllSkill(),
+  });
+};
+export const useGetSingleSkill = (id: string) => {
+  return useQuery<any, Error, IResponse<ISkill>>({
+    queryKey: ["skill", id],
+    queryFn: async () => await getSingleSkill(id),
+    gcTime: 0,
   });
 };
 
