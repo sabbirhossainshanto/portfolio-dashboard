@@ -48,11 +48,11 @@ export default function BlogPage() {
 
                   <div className="flex justify-between items-start h-full">
                     <div className="flex flex-col gap-0">
-                      <h3 className="font-semibold text-foreground/90">
+                      <h3 className="text-lg md:text-2xl font-semibold text-foreground/90">
                         {blog?.title}
                       </h3>
-                      <p className="text-small text-foreground/80">
-                        {blog?.description}
+                      <p className="text-foreground/80 text-lg md:text-xl">
+                        {blog?.description?.substring(0, 165)} ....
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-between h-full">
