@@ -45,6 +45,8 @@ export default function AddProject() {
       >
         <div className="sm:flex items-center w-full gap-5">
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("title", { required: true })}
             isRequired
             errorMessage="Please enter Title"
@@ -55,6 +57,8 @@ export default function AddProject() {
             type="text"
           />
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("type", { required: true })}
             isRequired
             errorMessage="Please enter type"
@@ -67,6 +71,8 @@ export default function AddProject() {
         </div>
         <div className="sm:flex items-center w-full gap-5">
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("frontendGithubLink", { required: true })}
             isRequired
             errorMessage="Please enter Frontend Github Link"
@@ -77,6 +83,8 @@ export default function AddProject() {
             type="text"
           />
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("frontendLiveLink", { required: true })}
             isRequired
             errorMessage="Please enter Frontend Live Link"
@@ -89,6 +97,8 @@ export default function AddProject() {
         </div>
         <div className="sm:flex items-center w-full gap-5">
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("backendGithubLink", { required: true })}
             isRequired
             errorMessage="Please enter Backend Github Link"
@@ -99,6 +109,8 @@ export default function AddProject() {
             type="text"
           />
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("backendLiveLink", { required: true })}
             isRequired
             errorMessage="Please enter Backend Live Link"
@@ -111,6 +123,8 @@ export default function AddProject() {
         </div>
         <div className="sm:flex items-center w-full gap-5">
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("technologies", { required: true })}
             isRequired
             errorMessage="Please enter Technologies"
@@ -121,6 +135,8 @@ export default function AddProject() {
             type="text"
           />
           <Input
+            variant="bordered"
+            radius="sm"
             {...register("image", { required: true })}
             isRequired
             errorMessage="Please enter image"
@@ -132,6 +148,8 @@ export default function AddProject() {
           />
         </div>
         <Textarea
+          variant="bordered"
+          radius="sm"
           {...register("overview", { required: true })}
           isRequired
           errorMessage="Please enter overview"
@@ -142,6 +160,8 @@ export default function AddProject() {
           type="textarea"
         />
         <Textarea
+          variant="bordered"
+          radius="sm"
           {...register("details", { required: true })}
           isRequired
           errorMessage="Please enter details"
@@ -153,10 +173,21 @@ export default function AddProject() {
         />
 
         <div className="flex gap-2">
-          <Button type="reset" variant="flat">
+          <Button
+            className="text-sm md:text-base"
+            radius="sm"
+            type="reset"
+            variant="flat"
+            color="secondary"
+          >
             Reset
           </Button>
-          <Button color="primary" type="submit">
+          <Button
+            className="text-sm md:text-base"
+            radius="sm"
+            color="primary"
+            type="submit"
+          >
             Continue
           </Button>
         </div>

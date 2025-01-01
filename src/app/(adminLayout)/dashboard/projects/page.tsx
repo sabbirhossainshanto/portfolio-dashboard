@@ -19,7 +19,7 @@ import { useDeleteProject, useGetAllProject } from "@/src/hooks/project";
 import Link from "next/link";
 import UpdateProject from "@/src/components/modal/UpdateProject";
 
-export const columns = [
+const columns = [
   { name: "Image", uid: "image" },
   { name: "Title", uid: "title" },
   { name: "Type", uid: "type" },
@@ -91,8 +91,10 @@ export default function Projects() {
               </Tooltip>
               <Tooltip color="danger" content="Delete skill">
                 <Button
+                  size="md"
+                  radius="sm"
                   onPress={() => handleDelete(project._id as string)}
-                  className="text-lg text-danger cursor-pointer active:opacity-50"
+                  className="text-base text-danger cursor-pointer  bg-primary"
                 >
                   <DeleteIcon />
                 </Button>
@@ -108,7 +110,7 @@ export default function Projects() {
 
   return (
     <div className="p-3">
-      <Table aria-label="Example table with custom cells">
+      <Table radius="none" aria-label="Example table with custom cells">
         <TableHeader columns={columns}>
           {(column) => (
             <TableColumn
@@ -123,7 +125,7 @@ export default function Projects() {
           {(item) => (
             <TableRow key={item._id}>
               {(columnKey) => (
-                <TableCell>
+                <TableCell className="text-sm md:text-base">
                   {renderCell(item, columnKey as keyof IProject)}
                 </TableCell>
               )}

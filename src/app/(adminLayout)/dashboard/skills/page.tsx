@@ -19,7 +19,7 @@ import AddSkill from "@/src/components/modal/AddSkill";
 import { toast } from "sonner";
 import UpdateSkill from "@/src/components/modal/UpdateSkill";
 
-export const columns = [
+const columns = [
   { name: "Image", uid: "image" },
   { name: "Title", uid: "title" },
   { name: "ACTIONS", uid: "actions" },
@@ -65,8 +65,10 @@ export default function Skills() {
               </Tooltip>
               <Tooltip color="danger" content="Delete skill">
                 <Button
+                  size="md"
+                  radius="sm"
                   onPress={() => handleDelete(skill._id as string)}
-                  className="text-lg text-danger cursor-pointer active:opacity-50"
+                  className="text-sm md:text-base bg-primary  text-danger cursor-pointer "
                 >
                   <DeleteIcon />
                 </Button>
@@ -81,11 +83,15 @@ export default function Skills() {
   );
 
   return (
-    <div className="p-3">
+    <div>
       <div className="flex items-center justify-end pb-4">
         <AddSkill />
       </div>
-      <Table aria-label="Example table with custom cells">
+      <Table
+        radius="none"
+        isStriped
+        aria-label="Example table with custom cells"
+      >
         <TableHeader columns={columns}>
           {(column) => (
             <TableColumn
@@ -100,7 +106,7 @@ export default function Skills() {
           {(item) => (
             <TableRow key={item._id}>
               {(columnKey) => (
-                <TableCell>
+                <TableCell className="text-sm md:text-base">
                   {renderCell(item, columnKey as keyof ISkill)}
                 </TableCell>
               )}

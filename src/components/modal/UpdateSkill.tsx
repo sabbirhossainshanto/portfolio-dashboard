@@ -1,5 +1,4 @@
 import {
-  useAddSkill,
   useGetAllSkill,
   useGetSingleSkill,
   useUpdateSkill,
@@ -59,10 +58,12 @@ export default function UpdateSkill({ id }: { id: string }) {
   return (
     <>
       <Button
-        className="text-lg text-default-400 cursor-pointer active:opacity-50"
+        size="md"
+        radius="sm"
+        className="text-sm md:text-base cursor-pointer bg-primary text-white"
         onPress={onOpen}
       >
-        <EditIcon />
+        Edit <EditIcon />
       </Button>
       <Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
         <ModalContent>
@@ -87,6 +88,8 @@ export default function UpdateSkill({ id }: { id: string }) {
               </ModalBody>
               <ModalFooter>
                 <Button
+                  radius="sm"
+                  className="text-sm md:text-base"
                   type="button"
                   color="danger"
                   variant="flat"
@@ -94,7 +97,12 @@ export default function UpdateSkill({ id }: { id: string }) {
                 >
                   Close
                 </Button>
-                <Button type="submit" color="primary">
+                <Button
+                  radius="sm"
+                  className="text-sm md:text-base"
+                  type="submit"
+                  color="primary"
+                >
                   {isPending && !isSuccess ? (
                     <span className="flex items-center gap-2 justify-center text-base">
                       <span>Please Wait</span>{" "}

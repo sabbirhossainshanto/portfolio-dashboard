@@ -38,10 +38,20 @@ export default function AddSkill() {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
+      <Button
+        size="md"
+        radius="sm"
+        className="bg-primary text-white text-base"
+        onPress={onOpen}
+      >
         Add Skill
       </Button>
-      <Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
+      <Modal
+        radius="sm"
+        isOpen={isOpen}
+        placement="top-center"
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {(onClose) => (
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -50,12 +60,14 @@ export default function AddSkill() {
               </ModalHeader>
               <ModalBody>
                 <Input
+                  radius="sm"
                   {...register("title", { required: true })}
                   label="Title"
                   placeholder="Enter skill title"
                   variant="bordered"
                 />
                 <Input
+                  radius="sm"
                   {...register("image", { required: true })}
                   label="Image"
                   type="file"
@@ -64,6 +76,8 @@ export default function AddSkill() {
               </ModalBody>
               <ModalFooter>
                 <Button
+                  size="md"
+                  radius="sm"
                   type="button"
                   color="danger"
                   variant="flat"
@@ -71,7 +85,7 @@ export default function AddSkill() {
                 >
                   Close
                 </Button>
-                <Button type="submit" color="primary">
+                <Button size="md" radius="sm" type="submit" color="primary">
                   {isPending && !isSuccess ? (
                     <span className="flex items-center gap-2 justify-center text-base">
                       <span>Please Wait</span>{" "}

@@ -1,3 +1,5 @@
+import { IconType } from "react-icons";
+
 export type TError = {
   data: {
     error: Record<string, unknown>;
@@ -25,4 +27,13 @@ export interface IResponse<T> {
   meta?: TMeta;
   success: boolean;
   message: string;
+}
+
+export interface INavLists {
+  key: string;
+  icon: IconType;
+  children: {
+    path: string;
+    text: string;
+  }[];
 }

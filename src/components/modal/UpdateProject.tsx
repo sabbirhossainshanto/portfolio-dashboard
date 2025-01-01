@@ -69,10 +69,10 @@ export default function UpdateProject({ id }: { id: string }) {
   return (
     <>
       <Button
-        className="text-lg text-default-400 cursor-pointer active:opacity-50"
+        className="text-base text-white bg-primary cursor-pointer "
         onPress={onOpen}
       >
-        <EditIcon />
+        Edit <EditIcon />
       </Button>
       <Modal
         className="z-[1202]"

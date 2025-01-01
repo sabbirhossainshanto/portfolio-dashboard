@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.editor-button-group button {
+  @apply flex gap-2 border border-gray-800 items-center justify-center rounded-lg px-2 py-2;
+}
+.editor-button-group button.is-active {
+  @apply bg-[#6a00f5] text-white;
+}
+
+.ProseMirror {
+  padding: 5px;
+  border: 2px solid #405189;
+  min-height: 100px;
+  height: 100%;
+  border-radius: 4px;
+  content: "dasdasdasd";
+}
